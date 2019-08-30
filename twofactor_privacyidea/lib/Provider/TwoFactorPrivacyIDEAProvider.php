@@ -20,19 +20,21 @@
  */
 namespace OCA\TwoFactor_privacyIDEA\Provider;
 
-use OCP\IUser;
-use OCP\IGroupManager;
-use OCP\Template;
-use OCP\Http\Client\IClientService;
-use OCP\ILogger;
-use OCP\IConfig;
-use OCP\IRequest;
-use OCP\ISession;
+use OCP\{
+	IUser,
+	IGroupManager,
+	Template,
+	Http\Client\IClientService,
+	ILogger,
+	IL10N,
+	IRequest,
+	IConfig,
+	ISession,
+	Authentication\TwoFactorAuth\TwoFactorException,
+	Authentication\TwoFactorAuth\IProvider
+};
 use Exception;
-// For OC < 9.2 the TwoFactorException does not exist. So we need to handle this in the method verifyChallenge
-use OCP\Authentication\TwoFactorAuth\TwoFactorException;
-use OCP\Authentication\TwoFactorAuth\IProvider;
-use OCP\IL10N;
+
 
 class AdminAuthException extends Exception
 {

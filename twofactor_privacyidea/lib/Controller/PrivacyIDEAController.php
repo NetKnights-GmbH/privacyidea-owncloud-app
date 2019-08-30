@@ -9,15 +9,17 @@
 namespace OCA\TwoFactor_privacyIDEA\Controller;
 use Exception;
 use OC;
-use OCP\AppFramework\Controller;
-use OCP\IL10N;
-use OCP\IRequest;
-use OCP\IConfig;
-use OCP\ISession;
-use OCP\AppFramework\Http\DataResponse;
-use OCP\Authentication\TwoFactorAuth\TwoFactorException;
+use OCP\{
+	AppFramework\Controller,
+	IL10N,
+	IRequest,
+	IConfig,
+	ISession,
+	AppFramework\Http\DataResponse,
+	Authentication\TwoFactorAuth\TwoFactorException
+};
 
-class SettingsController extends Controller {
+class PrivacyIDEAController extends Controller {
 	/** @var IL10N */
 	private $trans;
         /* configuration object */
@@ -111,5 +113,10 @@ class SettingsController extends Controller {
 			$message = $e->getMessage();
 		}
 		return new DataResponse(['status' => $status, 'data' => [ 'message' => $message ]]);
+	}
+
+	public function verifyResponseTokens() {
+		echo 'true';
+		return true;
 	}
 }

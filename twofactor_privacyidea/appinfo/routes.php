@@ -26,27 +26,30 @@ $application->registerRoutes(
         [
                 'routes' => [
 					[
-						'name' => 'Settings#setValue',
+						'name' => 'PrivacyIDEA#setValue',
 						'url' => '/setValue',
 						'verb' => 'POST'
 					],
 					[
-						'name' => 'Settings#getValue',
+						'name' => 'PrivacyIDEA#getValue',
 						'url' => '/getValue',
 						'verb' => 'GET'
 					],
 					[
-						'name' => 'Settings#testAuthentication',
+						'name' => 'PrivacyIDEA#testAuthentication',
 						'url' => '/testAuthentication',
 						'verb' => 'POST'
 					],
 					[
-						'name' => 'Settings#testServiceAccount',
+						'name' => 'PrivacyIDEA#testServiceAccount',
 						'url' => '/testServiceAccount',
+						'verb' => 'POST'
+					],
+					[
+						'name' => 'PrivacyIDEA#verifyResponseTokens',
+						'url' => '/verifyResponseTokens',
 						'verb' => 'POST'
 					],
 				]
 		]
 );
-
-

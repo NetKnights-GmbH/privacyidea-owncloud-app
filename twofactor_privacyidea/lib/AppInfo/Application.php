@@ -19,7 +19,7 @@
  */
 namespace OCA\TwoFactor_privacyIDEA\AppInfo;
 
-use OCA\TwoFactor_privacyIDEA\Controller\SettingsController;
+use OCA\TwoFactor_privacyIDEA\Controller\PrivacyIDEAController;
 use OCP\App;
 
 
@@ -35,9 +35,9 @@ class Application extends \OCP\AppFramework\App
         /**
          * Controllers
          */
-        $container->registerService('SettingsController', function ($c) {
+        $container->registerService('PrivacyIDEAController', function ($c) {
             $server = $c->getServer();
-            return new SettingsController(
+            return new PrivacyIDEAController(
                 $c->getAppName(),
                 $server->getRequest(),
                 $server->getL10N($c->getAppName()),
@@ -52,9 +52,6 @@ class Application extends \OCP\AppFramework\App
      */
     public function registerSettings()
     {
-        App::registerAdmin('twofactor_privacyidea',
-            'settings/settings-admin');
+        App::registerAdmin('twofactor_privacyidea', 'settings/settings-admin');
     }
-
-
 }
