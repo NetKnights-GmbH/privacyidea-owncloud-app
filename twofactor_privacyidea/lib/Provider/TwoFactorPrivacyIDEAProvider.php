@@ -168,7 +168,7 @@ class TwoFactorPrivacyIDEAProvider implements IProvider
      */
     private function triggerChallenges($username)
     {
-        $passOnNoToken = $this->getAppValue('passOnNoUser', false);
+        $passOnNoUser = $this->getAppValue('passOnNoUser', false);
 
         $this->session->set("pi_hideOTPField", true);
         $error_message = "";
@@ -223,7 +223,7 @@ class TwoFactorPrivacyIDEAProvider implements IProvider
 
                     return $detail->message;
                 }
-            } elseif ($result->getStatusCode() == 400 && $passOnNoToken) {
+            } elseif ($result->getStatusCode() == 400 && $passOnNoUser) {
                 if ($body->result->error != null) {
                     if ($body->result->error->code == 904) {
                         $this->session->set("pi_no_auth_required", true);
